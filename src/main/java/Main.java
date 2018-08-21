@@ -26,11 +26,23 @@ public class Main {
 	public static int MSG_SIZE_LIMIT = 1000;
 	public static String FILENAME = "src/main/resources/DSG Events Subscribers - Sheet1.csv";
 	
+	//add test audience numbers as a string to the array
+	public static boolean TEST = false;
+	public static String[] testNumbers = new String[] {"9199354425"};
+	
+	//set today's date
+	public static int month = 8;
+	public static int day = 21;
+	public static int year = 2018;
+	
+	//set number of future days for Duke calendar 
+	public static int numDays = 20;
+	
 	public static void main(String[] args) throws InvalidFormatException, IOException {
 		Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
 		
-		DukeEvents duke = new DukeEvents(20);
-		DurhamEvents durham = new DurhamEvents(8, 19, 2018); 
+		DukeEvents duke = new DukeEvents(numDays);
+		DurhamEvents durham = new DurhamEvents(month, day, year); 
 		
 		//to change filename, left click .csv file in src/main/resources and select "copy" then append that to end of src/main/resources
 		String filename = "src/main/resources/DSG Events Subscribers - Sheet1.csv";

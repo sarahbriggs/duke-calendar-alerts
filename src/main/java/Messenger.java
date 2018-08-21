@@ -79,17 +79,18 @@ public class Messenger {
 			for(String topic : topicsToEventsByNumber.keySet()) {		
 				String addTo = "";
 				if(durhamURLMap.containsKey(topic)) {
-					addTo += " ";
+					addTo += ", ";
 					addTo += durhamURLMap.get(topic);
 				}
 				message += String.format("%s %s %s \n", "-!*", topic, addTo);
 				
 				for(String event : topicsToEventsByNumber.get(topic)) {
-					message += String.format("%s %s \n", "-", event);
+					message += String.format("%s %s \n", " - ", event);
 				}
 				
 				message += String.format("%s \n", "");
 			}
+			message += String.format("%s \n", "Respond STOP to unsubcribe or visit _____ to edit your subscription.");
 			message = message.trim();
 			messages.put(number, message);
 		}
